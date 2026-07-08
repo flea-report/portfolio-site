@@ -1,0 +1,35 @@
+---
+import { Image } from 'astro:assets';
+
+const { prev, next } = Astro.props;
+---
+
+<nav class="project-nav">
+  <div class="project-nav-inner">
+
+    {prev ? (
+      <a href={`/case-studies/${prev.id}`} class="project-nav-link project-nav-prev">
+        <span class="project-nav-label">← Previous</span>
+        <div class="card-image">
+          <Image src={prev.data.heroImage} alt={prev.data.title} />
+        </div>
+        <span class="project-nav-title">{prev.data.title}</span>
+      </a>
+    ) : (
+      <div class="project-nav-empty" />
+    )}
+
+    {next ? (
+      <a href={`/case-studies/${next.id}`} class="project-nav-link project-nav-next">
+        <span class="project-nav-label">Next →</span>
+        <div class="card-image">
+          <Image src={next.data.heroImage} alt={next.data.title} />
+        </div>
+        <span class="project-nav-title">{next.data.title}</span>
+      </a>
+    ) : (
+      <div class="project-nav-empty" />
+    )}
+
+  </div>
+</nav>

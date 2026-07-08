@@ -1,0 +1,43 @@
+---
+import { getCollection } from 'astro:content';
+
+const caseStudies = await getCollection('caseStudies');
+const sendd = caseStudies[0];
+---
+
+<html>
+  <body>
+    <h1>Test page — case studies debug</h1>
+
+    <p>Number of case studies found: {caseStudies.length}</p>
+
+    <hr />
+
+    <h2>{sendd.data.title}</h2>
+    <h3>{sendd.data.subheading}</h3>
+    <p><strong>Overview:</strong> {sendd.data.overview}</p>
+    <p><strong>Role:</strong> {sendd.data.role}</p>
+
+    <h3>Project details</h3>
+    <ul>
+      {sendd.data.projectDetails.map((section) => (
+        <li>
+          <strong>{section.heading}:</strong> {section.content}
+        </li>
+      ))}
+    </ul>
+
+    <h3>Highlights</h3>
+    {sendd.data.highlights.map((group) => (
+      <div>
+        <h4>{group.subheading}</h4>
+        <p>{group.description}</p>
+        <ul>
+          {group.images.map((img) => (
+            <li>{img.caption}</li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </body>
+</html>
