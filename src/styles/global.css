@@ -118,16 +118,23 @@ a {
 /* ---- Header ---- */
 
 .site-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1.5rem 1.5rem;
   background-color: var(--bg-light);
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
   position: sticky;
   top: 0;
   z-index: 100;
+  padding: 1.5rem;
 }
+
+.header-inner {
+  max-width: 50rem;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
 
 .header-logo img {
   height: 2rem;
@@ -242,6 +249,11 @@ a {
   padding-bottom: 6rem;
 }
 
+.project-index h2 {
+  font-weight: 600;
+  margin-bottom: 3rem;
+}
+
 .intro-layout {
   display: flex;
   align-items: center;
@@ -286,6 +298,7 @@ a {
 .landing-intro h2 {
   font-weight: 400;
   opacity: 0.85;
+  margin-bottom: 3rem;
 }
 
 .project-grid {
