@@ -290,6 +290,12 @@ a {
   text-decoration: none;
 }
 
+.linkedin-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
 /* ---- Project nav ---- */
 
 .project-nav {

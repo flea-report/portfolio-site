@@ -10,11 +10,28 @@ const phrases = [
 <footer class="site-footer">
   <div class="footer-inner">
     <span id="footer-phrase"></span>
-    <a href="https://nz.linkedin.com/in/ben-la-599686b4" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+    <a
+      href="https://nz.linkedin.com/in/ben-la-599686b4"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="linkedin-link"
+    >
+      LinkedIn
+      <svg
+        width="14"
+        height="14"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.5"
+      >
+        <path d="M7 17L17 7M17 7H8M17 7V16"></path>
+      </svg>
+    </a>
   </div>
 </footer>
 
 <script define:vars={{ phrases }}>
   const pick = phrases[Math.floor(Math.random() * phrases.length)];
-  document.getElementById('footer-phrase').textContent = pick;
+  document.getElementById("footer-phrase").textContent = pick;
 </script>
