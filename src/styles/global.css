@@ -30,10 +30,11 @@
 /* ---- Dark mode overrides ----
    Same two-band structure as light mode, shifted down the value
    scale so the "dark band vs light band" hierarchy is preserved
-   rather than flattened. */
+   rather than flattened. See PageLayout / toggle script for how
+   data-theme gets set on <html>. */
 [data-theme="dark"] {
   --bg-dark-band: #252525;   /* unchanged — this is now the "lighter" of the two dark-mode tones */
-  --bg-light-band: #202020;  /* darker than --bg-dark-band, was near-white originally */
+  --bg-light-band: #161616;  /* darker than --bg-dark-band, was near-white originally */
 
   --text-on-dark-band: #f5f4f2;   /* soft white, works fine on #252525 */
   --text-on-light-band: #f0efec;  /* background is now darker than the "dark" band, so this needs to be brighter, not dimmer, than before */
@@ -128,7 +129,10 @@ a {
   color: var(--text-on-dark-band);
 }
 
-/* Dark mode only: hairline divider between stacked sections. */
+/* Dark mode only: hairline divider between stacked sections.
+   In light mode, .bg-dark and .bg-light already contrast enough
+   on their own — this is specifically to help adjacent dark tones
+   read as separate bands rather than one continuous fill. */
 [data-theme="dark"] .section {
   border-bottom: 1px solid var(--border-color);
 }
@@ -161,6 +165,13 @@ a {
   top: 0;
   z-index: 100;
   padding: 1.5rem;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.3s ease;
+}
+
+/* Slides the whole header off-screen when .header-hidden is toggled
+   on by the scroll script below */
+.site-header.header-hidden {
+  transform: translateY(-100%);
 }
 
 .header-inner {
@@ -171,9 +182,15 @@ a {
   justify-content: space-between;
 }
 
+/* Smaller header on mobile — less padding, smaller logo — since
+   screen real estate matters more on a small viewport */
 @media (max-width: 640px) {
-  .header-inner {
-    padding: 1.5rem 1.5rem;
+  .site-header {
+    padding: 0.75rem 1rem;
+  }
+
+  .header-logo img {
+    height: 1.5rem;
   }
 }
 
@@ -195,7 +212,8 @@ a {
   font-size: 0.875rem;
 }
 
-/* In dark mode, header locks to the same dark tone as the footer */
+/* In dark mode, header locks to the same dark tone as the footer
+   rather than following the (now unpopular) mid-gray light-band */
 [data-theme="dark"] .site-header {
   background-color: var(--bg-dark-band);
   color: var(--text-on-dark-band);
