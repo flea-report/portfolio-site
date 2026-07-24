@@ -388,12 +388,12 @@ a {
 
 @keyframes wrap-pop {
   0% { transform: translateX(-50%) scale(1); }
-  25% { transform: translateX(-50%) scale(0.85); }
-  35% { transform: translateX(-50%) scale(0.9) translateY(-2px); }
-  45% { transform: translateX(-50%) scale(0.85) translateY(2px); }
-  55% { transform: translateX(-50%) scale(0.9) translateY(-2px); }
+  25% { transform: translateX(-50%) scale(0.7); }
+  35% { transform: translateX(-50%) scale(0.8) translateY(-2px); }
+  45% { transform: translateX(-50%) scale(0.5) translateY(2px); }
+  55% { transform: translateX(-50%) scale(0.7) translateY(-2px); }
   65% { transform: translateX(-50%) scale(0.85) translateY(1px); }
-  100% { transform: translateX(-50%) scale(1.15); }
+  100% { transform: translateX(-50%) scale(1.2); }
 }
 
 /* ---- Project nav ---- */
