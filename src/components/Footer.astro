@@ -8,9 +8,13 @@ const phrases = [
 ---
 
 <footer class="site-footer">
+  <div class="footer-face-wrap">
+    <img id="footer-face" class="footer-face" alt="" />
+  </div>
   <div class="footer-inner">
     <span id="footer-phrase"></span>
     <a
+      id="linkedin-link"
       href="https://nz.linkedin.com/in/ben-la-599686b4"
       target="_blank"
       rel="noopener noreferrer"
@@ -34,4 +38,125 @@ const phrases = [
 <script define:vars={{ phrases }}>
   const pick = phrases[Math.floor(Math.random() * phrases.length)];
   document.getElementById("footer-phrase").textContent = pick;
+</script>
+
+<script>
+  const faceLogos = [
+    "/logos/ben-logo1.svg",
+    "/logos/ben-logo2.svg",
+    "/logos/ben-logo3.svg",
+    "/logos/ben-logo4.svg",
+    "/logos/ben-logo5.svg",
+    "/logos/ben-logo6.svg",
+  ];
+  const randomFace = faceLogos[Math.floor(Math.random() * faceLogos.length)];
+  document.getElementById("footer-face").src = randomFace;
+
+  // Desktop-only, matching the header/timeline breakpoint elsewhere
+  if (window.innerWidth > 640) {
+    const footer = document.querySelector(".site-footer");
+    const face = document.getElementById("footer-face");
+    const faceWrap = document.querySelector(".footer-face-wrap");
+    const linkedinLink = document.getElementById("linkedin-link");
+
+    function alignFaceToLink() {
+      const linkRect = linkedinLink.getBoundingClientRect();
+      const footerRect = footer.getBoundingClientRect();
+      const linkCenterX = linkRect.left + linkRect.width / 2 - footerRect.left;
+      faceWrap.style.left = `${linkCenterX}px`;
+    }
+
+    alignFaceToLink();
+    window.addEventListener("resize", alignFaceToLink);
+
+    const PROXIMITY_ZONE = 400; // px above the footer where the effect starts
+    const MAX_REVEAL = 0.71; // never fully reveal — caps at 80%
+
+    let ticking = false;
+
+    const PARTICLE_COLORS = [
+      "#005181",
+      "#ffab24",
+      "#7bffbd",
+      "#d45fff",
+      "#ff7dca",
+      "#61c7ff",
+    ];
+
+    let exploded = false;
+
+    function updateFace(mouseY) {
+      if (exploded) return;
+      const footerTop = footer.getBoundingClientRect().top;
+      const distance = footerTop - mouseY; // positive = cursor is above footer
+
+      let progress;
+      if (distance <= 0) {
+        progress = 1; // cursor at or below footer top — fully triggered
+      } else {
+        progress = Math.max(0, 1 - distance / PROXIMITY_ZONE);
+      }
+
+	  		      // At rest (progress 0) the face sits fully hidden at translateY(100%).
+      // At max (progress 1) it's revealed only up to MAX_REVEAL, so it
+      // never fully pops out — translateY bottoms out at 20%, not 0%.
+      const reveal = progress * MAX_REVEAL;
+      const translateY = (1 - reveal) * 100;
+      face.style.transform = `translateY(${translateY}%) rotate(-20deg)`;
+	}
+
+      function spawnParticles(x, y) {
+        const count = 12;
+
+        for (let i = 0; i < count; i++) {
+          const particle = document.createElement("div");
+          particle.className = "footer-particle";
+          particle.style.backgroundColor =
+            PARTICLE_COLORS[Math.floor(Math.random() * PARTICLE_COLORS.length)];
+
+          const angle =
+            (Math.PI * 2 * i) / count + (Math.random() * 0.5 - 0.25);
+          const distance = 40 + Math.random() * 60;
+          const dx = Math.cos(angle) * distance;
+          const dy = Math.sin(angle) * distance;
+
+          particle.style.left = `${x}px`;
+          particle.style.top = `${y}px`;
+          particle.style.setProperty("--dx", `${dx}px`);
+          particle.style.setProperty("--dy", `${dy}px`);
+
+          document.body.appendChild(particle);
+
+          particle.addEventListener("animationend", () => particle.remove());
+        }
+      }
+
+face.addEventListener("click", () => {
+  if (exploded) return;
+  exploded = true;
+
+  faceWrap.classList.add("popping");
+
+  face.style.transition = "transform 0.45s ease-in-out";
+  face.style.transform = "translateY(0%) rotate(-20deg)";
+
+  setTimeout(() => {
+    const rect = face.getBoundingClientRect();
+    spawnParticles(rect.left + rect.width / 2, rect.top + rect.height / 2);
+
+    face.style.transition = "opacity 0.15s ease-out";
+    face.style.opacity = "0";
+  }, 450);
+});
+    
+    document.addEventListener("mousemove", (e) => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          updateFace(e.clientY);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+  }
 </script>

@@ -1,11 +1,63 @@
 ---
-import Layout from '../layouts/PageLayout.astro';
+import Layout from "../layouts/PageLayout.astro";
+import anzIcon from "../assets/icons/anz.svg";
+import deloitteIcon from "../assets/icons/deloitte.svg";
+import mojIcon from "../assets/icons/moj.svg";
+import policeIcon from "../assets/icons/police.svg";
+
+const experience = [
+  {
+    company: "ANZ",
+    role: "Experience designer",
+    dates: "2018–2021",
+    icon: anzIcon,
+  },
+  {
+    company: "Deloitte",
+    role: "Senior experience design consultant",
+    dates: "2021–2023",
+    icon: deloitteIcon,
+  },
+  {
+    company: "Ministry of Justice",
+    role: "Service designer",
+    dates: "2023–2024",
+    icon: mojIcon,
+  },
+  {
+    company: "NZ Police",
+    role: "Learning designer",
+    dates: "2025–present",
+    icon: policeIcon,
+  },
+];
 ---
 
-<Layout
-	title="About Me"
-	description="About page — coming soon"
->
-	<h1>About Me</h1>
-	<p>This page is coming soon.</p>
+<Layout title="About" description="About Ben — designer based in Wellington">
+  <h1>About me</h1>
+  <p>
+    I'm a designer based in Wellington with experience across UX, UI, and
+    service design, in public, private, and agency settings. I enjoy bringing people
+    together to work towards a human-centred outcome that fits.
+  </p>
+
+  <h2>Design experience</h2>
+  <div class="timeline">
+    {
+      experience.map((item) => (
+        <div class="timeline-item">
+          <div class="timeline-icon">
+            <img src={item.icon.src} alt="" />
+          </div>
+          <div class="timeline-content">
+            <div>
+              <span class="timeline-company">{item.company}</span>
+              <span class="timeline-role">{item.role}</span>
+            </div>
+            <span class="timeline-dates">{item.dates}</span>
+          </div>
+        </div>
+      ))
+    }
+  </div>
 </Layout>
