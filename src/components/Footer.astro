@@ -21,14 +21,7 @@ const phrases = [
       class="linkedin-link"
     >
       LinkedIn
-      <svg
-        width="14"
-        height="14"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2.5"
-      >
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
         <path d="M7 17L17 7M17 7H8M17 7V16"></path>
       </svg>
     </a>
@@ -54,23 +47,24 @@ const phrases = [
 
   // Desktop-only, matching the header/timeline breakpoint elsewhere
   if (window.innerWidth > 640) {
-    const footer = document.querySelector(".site-footer");
-    const face = document.getElementById("footer-face");
-    const faceWrap = document.querySelector(".footer-face-wrap");
-    const linkedinLink = document.getElementById("linkedin-link");
+const footer = document.querySelector(".site-footer");
+const face = document.getElementById("footer-face");
+const faceWrap = document.querySelector(".footer-face-wrap");
+const linkedinLink = document.getElementById("linkedin-link");
 
-    function alignFaceToLink() {
+    function alignFaceToLink() {  // ← add this whole function back
       const linkRect = linkedinLink.getBoundingClientRect();
       const footerRect = footer.getBoundingClientRect();
       const linkCenterX = linkRect.left + linkRect.width / 2 - footerRect.left;
       faceWrap.style.left = `${linkCenterX}px`;
+      faceWrap.style.visibility = "visible";
     }
 
-    alignFaceToLink();
+    alignFaceToLink();  // ← and these two lines
     window.addEventListener("resize", alignFaceToLink);
 
     const PROXIMITY_ZONE = 400; // px above the footer where the effect starts
-    const MAX_REVEAL = 0.78; // never fully reveal — caps at 80%
+    const MAX_REVEAL = 0.71; // never fully reveal — caps at 80%
 
     let ticking = false;
 
@@ -85,8 +79,6 @@ const phrases = [
 
     let exploded = false;
 
-    const HIDDEN_OFFSET = 130; // was 100 — extra buffer accounts for rotate() pushing corners past a plain 100%
-
     function updateFace(mouseY) {
       if (exploded) return;
       const footerTop = footer.getBoundingClientRect().top;
@@ -99,69 +91,62 @@ const phrases = [
         progress = Math.max(0, 1 - distance / PROXIMITY_ZONE);
       }
 
-	  		      // At rest (progress 0) the face sits fully hidden at translateY(100%).
+      // At rest (progress 0) the face sits fully hidden at translateY(100%).
       // At max (progress 1) it's revealed only up to MAX_REVEAL, so it
       // never fully pops out — translateY bottoms out at 20%, not 0%.
       const reveal = progress * MAX_REVEAL;
-      const translateY = (1 - reveal) * HIDDEN_OFFSET;
+      const translateY = (1 - reveal) * 100;
       face.style.transform = `translateY(${translateY}%) rotate(-20deg)`;
-	}
+    }
 
-      function spawnParticles(x, y) {
-        const count = 12;
+    function spawnParticles(x, y) {
+      const count = 12;
 
-        for (let i = 0; i < count; i++) {
-          const particle = document.createElement("div");
-          particle.className = "footer-particle";
-          particle.style.backgroundColor =
-            PARTICLE_COLORS[Math.floor(Math.random() * PARTICLE_COLORS.length)];
+      for (let i = 0; i < count; i++) {
+        const particle = document.createElement("div");
+        particle.className = "footer-particle";
+        particle.style.backgroundColor =
+          PARTICLE_COLORS[Math.floor(Math.random() * PARTICLE_COLORS.length)];
 
-          const angle =
-            (Math.PI * 2 * i) / count + (Math.random() * 1.5 - 0.6);
-          const distance = 40 + Math.random() * 60;
-          const dx = Math.cos(angle) * distance;
-          const dy = Math.sin(angle) * distance;
+        const angle =
+          (Math.PI * 2 * i) / count + (Math.random() * 0.5 - 0.25);
+        const distance = 40 + Math.random() * 60;
+        const dx = Math.cos(angle) * distance;
+        const dy = Math.sin(angle) * distance;
 
+        particle.style.left = `${x}px`;
+        particle.style.top = `${y}px`;
+        particle.style.setProperty("--dx", `${dx}px`);
+        particle.style.setProperty("--dy", `${dy}px`);
 
-  
-          particle.style.left = `${x}px`;
-          particle.style.top = `${y}px`;
-          particle.style.setProperty("--dx", `${dx}px`);
-          particle.style.setProperty("--dy", `${dy}px`);
-          particle.style.animationDelay = `${Math.random() * 90}ms`;
+        document.body.appendChild(particle);
 
-          document.body.appendChild(particle);
-
-          particle.addEventListener("animationend", () => particle.remove());
-        }
+        particle.addEventListener("animationend", () => particle.remove());
       }
+    }
 
 face.addEventListener("click", () => {
   if (exploded) return;
   exploded = true;
 
-// Snap to fully revealed instantly — no transition — so the pop
-  // animation starts from a clean, fully-visible state rather than
-  // racing an in-progress reveal.
+  // Instantly show the full logo — no transition — before the pop begins
   face.style.transition = "none";
   face.style.transform = "translateY(0%) rotate(-20deg)";
 
-  // Force the browser to apply that style change before adding the
-  // animation class, otherwise it can get batched together and skip
-  // straight to the end state.
-  void face.offsetHeight;
+  // Force the browser to apply that instantly, before adding the animation class
+  void face.offsetWidth;
 
   faceWrap.classList.add("popping");
 
   setTimeout(() => {
-    const rect = face.getBoundingClientRect();
-    spawnParticles(rect.left + rect.width / 2, rect.top + rect.height / 2);
+        const rect = face.getBoundingClientRect();
+        spawnParticles(rect.left + rect.width / 2, rect.top + rect.height / 2);
 
-    face.style.transition = "opacity 0.15s ease-out";
-    face.style.opacity = "0";
-  }, 450);
-});
-    
+        face.style.transition = "opacity 0.15s ease-out";
+        face.style.opacity = "0";
+      }, 450);
+    });
+
     document.addEventListener("mousemove", (e) => {
       if (!ticking) {
         requestAnimationFrame(() => {
