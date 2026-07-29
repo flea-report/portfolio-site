@@ -64,7 +64,8 @@ const linkedinLink = document.getElementById("linkedin-link");
     window.addEventListener("resize", alignFaceToLink);
 
     const PROXIMITY_ZONE = 400; // px above the footer where the effect starts
-    const MAX_REVEAL = 0.71; // never fully reveal — caps at 80%
+    const MAX_REVEAL = 0.78; // never fully reveal — caps at 80%
+    const HIDDEN_OFFSET = 130;
 
     let ticking = false;
 
@@ -95,7 +96,7 @@ const linkedinLink = document.getElementById("linkedin-link");
       // At max (progress 1) it's revealed only up to MAX_REVEAL, so it
       // never fully pops out — translateY bottoms out at 20%, not 0%.
       const reveal = progress * MAX_REVEAL;
-      const translateY = (1 - reveal) * 100;
+      const translateY = (1 - reveal) * HIDDEN_OFFSET;
       face.style.transform = `translateY(${translateY}%) rotate(-20deg)`;
     }
 
