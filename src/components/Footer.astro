@@ -140,12 +140,12 @@ face.addEventListener("click", () => {
   faceWrap.classList.add("popping");
 
   setTimeout(() => {
-        const rect = face.getBoundingClientRect();
-        spawnParticles(rect.left + rect.width / 2, rect.top + rect.height / 2);
+  const rect = face.getBoundingClientRect();
+  spawnParticles(rect.left + rect.width / 2, rect.top + rect.height / 2);
 
-        face.style.transition = "opacity 0.15s ease-out";
-        face.style.opacity = "0";
-      }, 450);
+  face.style.transition = "opacity 0.1s ease-out";
+  face.style.opacity = "0";
+      }, 600);
     });
 
     document.addEventListener("mousemove", (e) => {
