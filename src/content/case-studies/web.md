@@ -2,14 +2,14 @@
 title: "Web services"
 subheading: "Defining an internal web service"
 overview: "Improving the internal capability of teams to support the delivery of web services. This involved working with teams across the business and vendors to understand the current state and desired future state of web services in the organisation."
-role: "Service Designer leading the engagement from discovery through to design and delivery of the service. This involved conducting research,  producing design artefacts, and leading stakeholder engagement."
+role: "Service Designer leading the engagement from discovery through to design and delivery of the service. This involved conducting research, producing design artefacts, and leading stakeholder engagement."
 heroImage: "./web-hero.webp"
-heroImageAlt: "An abstracted digram indicating inputs to a process with an output"
+heroImageAlt: "An abstracted diagram indicating inputs to a process with an output"
 order: 5
 
 highlights:
   - subheading: "Workshopping the future state"
-    description: "We ran workshops to discuss how the service could be managed collaboratively at a high level. Each section was populated by the relevant teams and agree upon as a group. This was refined and agreed upon by our stakeholders."
+    description: "We ran workshops to discuss how the service could be managed collaboratively at a high level. Each section was populated by the relevant teams and agreed upon as a group. This was refined and agreed upon by our stakeholders."
     images:
       - image: "./web-workshop.webp"
         caption: "Whiteboarding session"
@@ -27,30 +27,28 @@ highlights:
     images:
       - image: "./web-decision-tree.webp"
         caption: "Future work decision tree"
-        alt: "A decision tree showing teams are to be engaged for future work"
+        alt: "A decision tree showing which teams are to be engaged for future work"
 
 ---
 
 ## Approach
 
-Research was conducted with the fruit growing community and companies that provided fertiliser related services. The project team split into pairs to conduct interviews and captured notes in a shared file.
-‍
-The team worked together to synthesize findings by grouping key concepts into themes. Insights were used to produce a journey map of the fertiliser life cycle to highlight current pain points. This was presented back to stakeholders to highlight the challenges faced by the growing community.
+The lifecycle of web products was mapped out through desk research and initial conversations with tech staff. I selected case studies of recent web work for an in-depth review of the process and outcomes.
 
-We worked as a project team to define where we should focus our effort to have the most impact on the current pain points. Through this process we decided to focus on standardising fertiliser recommendations and supporting data flow between companies and growers. We developed storyboards for potential solutions and workshopped the concepts with the growing community. Through this process, we were able to refine our designs for further user testing.
+User research was conducted through interviews and workshops with the business, tech staff, and vendors to understand the overall experience of collaborating to deliver web services. Findings from the research were synthesised and played back to stakeholders.
 
-We developed a low fidelity data collection tool in the form of a spreadsheet to test with the growing community. This was done primarily to understand if the data would flow correctly between the various touch points. Through this process we refined our design until we had an MVP. The requirements were then captured as user stories ready for development.
+Through workshops with individual teams, a desired future state for web services was co-designed and iteratively refined. Once the final design was signed off, a number of artefacts were produced and workshopped with the internal teams to document the agreed ways of working between teams. These artefacts were used to induct new team members and referenced in ongoing discussions to improve processes.
 
 ## Outcomes
 
-The project identified how fertiliser management could be improved across the growing community and the findings resonated with stakeholders who had visibility of the work.
+The engagement produced a working agreement with clearly defined roles and responsibilities across teams.
 
-The MVP was left in a technically viable state, ready to be progressed as part of future development.
+The cross-functional model enabled requests to be evaluated more holistically, improving decision making around prioritisation.
 
-With changes to environmental regulations around agricultural emissions on the horizon, the project positioned the organisation to respond proactively rather than reactively when new requirements take effect.
+Long term, the aim is to reduce piecemeal solutions that create ongoing costs and technical debt, replacing scattered ways of working with a more coordinated and sustainable approach to web services.
 
 ## Challenges
 
-Scaling research - Due to the scale of the research it was difficult to ensure consistency of user interviews. This created variance in the length of the interviews and the level of detail in the notes. The process of synthesizing the interviews into themed insights was also more time consuming than anticipated.
+Gaps in documentation — Due to staff turnover and a lack of documentation, it was difficult to conduct research on certain case studies. The research phase required a few iterations to capture a good spread of case studies with active team members.
 
-Stakeholder alignment - Designing for the community was challenging as each group operated independently in the life cycle and had different motivations. The design needed to be effective in addressing the pain points but there also needed to be an incentive for each party to adopt the proposed solution.
+Time-constrained teams — A key finding of the research was that teams were time constrained, which made it difficult for them to prioritise meetings relating to web work. This made the project itself challenging to plan for, and it also created uncertainty around attendance at ceremonies supporting the future service model.

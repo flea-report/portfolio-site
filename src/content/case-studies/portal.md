@@ -17,7 +17,7 @@ highlights:
 
 
   - subheading: "Mega menu user testing"
-    description: "We used the development instance of the portal to user test our mega menu. The tech offerings were particularly tricky to dial in and was improved by replacing jargon with everyday terms."
+    description: "We used the development instance of the portal to user test our mega menu. The tech offerings were particularly tricky to dial in and were improved by replacing jargon with everyday terms."
     images:
       - image: "./portal-mega-menu.webp"
         caption: "Three iterations of a mega menu design"
@@ -35,7 +35,7 @@ highlights:
     images:
       - image: "./portal-form-testing.webp"
         caption: "Lofi form with user feedback annotations"
-        alt: "A screenshot of a low fidelity form with annotions from user feedback"
+        alt: "A screenshot of a low fidelity form with annotations from user feedback"
 ---
 
 ## Approach
@@ -46,11 +46,11 @@ Workshops were run with IT and HR teams to understand what services were to be o
 
 We designed our forms through workshopping ideas with the project team and subject matter experts. I then used Figma to produce prototypes which we user tested with nominated change champions from across the business. The findings from the user testing were presented back to the project team and feedback was used to iterate and refine our forms.
 
-To design the information architecture of the service portal I used the card sorting feature of the Optimal Workshop Suite to conduct user testing. This design went through rounds of iteration, the technology section of the catalogue was particularly challenging due to the use of tech jargon.
+To design the information architecture of the service portal I used the card sorting feature of the Optimal Workshop Suite to conduct user testing. This design went through rounds of iteration. The technology section of the catalogue was particularly challenging due to the use of tech jargon.
 
 We user tested the portal with screen reader users to ensure that the design would work with the preferred screen reading software. An accessibility statement was also written to provide transparency around portal accessibility standards.
 
-We worked closely with the Change Management team to support training materials for the portal release. Upon release a team was setup to capture feedback and support continuous improvement.
+We worked closely with the Change Management team to support training materials for the portal release. Upon release a team was set up to capture feedback and support continuous improvement.
 
 ## Outcomes
 

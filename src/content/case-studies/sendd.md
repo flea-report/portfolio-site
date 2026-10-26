@@ -20,10 +20,10 @@ highlights:
     images:
       - image: "./sendd-signup.webp"
         caption: "Sign up process"
-        alt: "A wireframe screen of a branded sign-in page"
+        alt: "A wireframe screen of a branded sign-up page"
       - image: "./sendd-storefront-customisation.webp"
         caption: "Storefront customisation"
-        alt: "A wireframe screen of store setup page when you can customise the layout of your store pages"
+        alt: "A wireframe screen of store setup page where you can customise the layout of your store pages"
       - image: "./sendd-managing-products.webp"
         caption: "Managing products"
         alt: "A wireframe screen of product management page where you can administer the products in your store"
@@ -60,6 +60,6 @@ As of May 2026 Sendd has grown to 129 stores and has expanded beyond the NZ mark
 
 ## Key learnings
 
-Working in a startup environment is fairly new to me and it has required a different mindset in terms of understanding my role as a designer. Scope and prioritisation can shift rapidly and being able to pivot and make adjustments have been valuable learnings.
+Working in a startup environment is fairly new to me and it has required a different mindset in terms of understanding my role as a designer. Scope and prioritisation can shift rapidly and being able to pivot and make adjustments has been valuable learnings.
 
 Understanding how AI can play a role as part of a feature's life cycle has also been illuminating.

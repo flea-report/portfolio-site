@@ -35,15 +35,15 @@ highlights:
     images:
       - image: "./fert-spreadsheet.webp"
         caption: "Testing data flow with a spreadsheet"
-        alt: "Abstracted representation the fertiliser lifecycle next to a spreadsheet table"
+        alt: "Abstracted representation of the fertiliser lifecycle next to a spreadsheet table"
       
 ---
 
 ## Approach
 
 Research was conducted with the fruit growing community and companies that provided fertiliser related services. The project team split into pairs to conduct interviews and captured notes in a shared file.
-‍
-The team worked together to synthesize findings by grouping key concepts into themes. Insights were used to produce a journey map of the fertiliser life cycle to highlight current pain points. This was presented back to stakeholders to highlight the challenges faced by the growing community.
+
+The team worked together to synthesise findings by grouping key concepts into themes. Insights were used to produce a journey map of the fertiliser life cycle to highlight current pain points. This was presented back to stakeholders to highlight the challenges faced by the growing community.
 
 We worked as a project team to define where we should focus our effort to have the most impact on the current pain points. Through this process we decided to focus on standardising fertiliser recommendations and supporting data flow between companies and growers. We developed storyboards for potential solutions and workshopped the concepts with the growing community. Through this process, we were able to refine our designs for further user testing.
 
@@ -59,6 +59,6 @@ With changes to environmental regulations around agricultural emissions on the h
 
 ## Challenges
 
-Scaling research - Due to the scale of the research it was difficult to ensure consistency of user interviews. This created variance in the length of the interviews and the level of detail in the notes. The process of synthesizing the interviews into themed insights was also more time consuming than anticipated.
+Scaling research — Due to the scale of the research it was difficult to ensure consistency of user interviews. This created variance in the length of the interviews and the level of detail in the notes. The process of synthesising the interviews into themed insights was also more time consuming than anticipated.
 
-Stakeholder alignment - Designing for the community was challenging as each group operated independently in the life cycle and had different motivations. The design needed to be effective in addressing the pain points but there also needed to be an incentive for each party to adopt the proposed solution.
+Stakeholder alignment — Designing for the community was challenging as each group operated independently in the life cycle and had different motivations. The design needed to be effective in addressing the pain points but there also needed to be an incentive for each party to adopt the proposed solution.
