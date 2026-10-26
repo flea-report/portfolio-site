@@ -17,7 +17,6 @@ My UX design portfolio, built with [Astro](https://astro.build) and hosted on [N
 ├── src/
 │   ├── components/      # UI components
 │   ├── content/
-│   │   ├── blog/        # blog posts
 │   │   └── case-studies/ # case study content
 │   ├── layouts/
 │   └── pages/            # site routes
